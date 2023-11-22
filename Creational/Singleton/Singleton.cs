@@ -44,6 +44,6 @@
         }
 
         // We'll use this property to prove that our Singleton really works.
-        public string Value { get; set; }
+        public string? Value { get; set; }
     }
 }

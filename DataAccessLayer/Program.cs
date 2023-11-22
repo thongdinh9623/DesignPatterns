@@ -1,10 +1,21 @@
-﻿namespace DataAccessLayer
+﻿using DataAccessLayer.Entities;
+using DataAccessLayer.Readers;
+using System.Collections.ObjectModel;
+
+namespace DataAccessLayer
 {
-    internal class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            ProductReader reader = new();
+            Collection<Product> products = reader.Execute();
+            foreach (Product p in products)
+            {
+                Console.WriteLine(string.Format("{0}: {1}",
+                    p.ProductId,
+                    p.ProductName));
+            }
         }
     }
 }
